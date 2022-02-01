@@ -9,12 +9,24 @@ public class LightRadius : MonoBehaviour
     public float timeStart = 60;
     public playerHealth playerHealth;
     UnityEngine.Experimental.Rendering.Universal.Light2D playerLight;
-    // Start is called before the first frame update
+    
+    public static LightRadius instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Il y a plus d'une instance de PlayerMovement dans la scène");
+            return;
+        }
+
+        instance = this;
+    }
+
     void Start()
     {
         playerLight = GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>();
     }
-
     void FixedUpdate()
     {
         if (playerLight.pointLightOuterRadius > 1)
@@ -28,7 +40,12 @@ public class LightRadius : MonoBehaviour
         }
     }
     void Die(){
-        PlayerMovement.instance.animator.SetTrigger("Die");
+         PlayerMovement.instance.animator.SetTrigger("Die");
          PlayerMovement.instance.enabled = false;
+    }
+
+    public void aggrandirHallo()
+    {
+        playerLight.pointLightOuterRadius += 0.09766666666f * 5;
     }
 }
