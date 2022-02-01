@@ -5,8 +5,11 @@ public class playerHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int currentHealth;
-    // public UnityEngine.Experimental.Rendering.Universal.Light2D playerLight;
+    // UnityEngine.Experimental.Rendering.Universal.Light2D playerLight;
     public HealthBar healthBar;
+
+   
+
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +17,7 @@ public class playerHealth : MonoBehaviour
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
         // playerLight = GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>();
+        
     }
 
     // Update is called once per frame
@@ -23,6 +27,7 @@ public class playerHealth : MonoBehaviour
         {
             takeDamage(20);
         }
+        // print(playerLight);
     }
 
 

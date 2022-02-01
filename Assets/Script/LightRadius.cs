@@ -7,10 +7,10 @@ using UnityEngine.Experimental.Rendering.LWRP;
 public class LightRadius : MonoBehaviour
 {
     public float timeStart = 60;
-    public playerHealth playerHealth;
     UnityEngine.Experimental.Rendering.Universal.Light2D playerLight;
     
     public static LightRadius instance;
+    public HealthBar healthBar;
 
     private void Awake()
     {
@@ -32,7 +32,8 @@ public class LightRadius : MonoBehaviour
         if (playerLight.pointLightOuterRadius > 1)
         {
            playerLight.pointLightOuterRadius -= 0.09766666666f/60;
-           print(playerHealth);
+           double damage = ((0.09766666666) * 100)/60; 
+           healthBar.decreaseHealth(damage);
         } else
         {
             Die();
