@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.LWRP;
 
+
 public class LightRadius : MonoBehaviour
 {
     public float timeStart = 60;
+    public playerHealth playerHealth;
     UnityEngine.Experimental.Rendering.Universal.Light2D playerLight;
     // Start is called before the first frame update
     void Start()
@@ -17,7 +19,8 @@ public class LightRadius : MonoBehaviour
     {
         if (playerLight.pointLightOuterRadius > 1)
         {
-           playerLight.pointLightOuterRadius -= 0.09766666666f/60; 
+           playerLight.pointLightOuterRadius -= 0.09766666666f/60;
+           print(playerHealth);
         } else
         {
             Die();
