@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogWarning("Il y a plus d'une instance de PlayerMovement dans la scène");
             return;
         }
-
         instance = this;
     }
     

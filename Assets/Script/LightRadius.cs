@@ -54,5 +54,9 @@ public class LightRadius : MonoBehaviour
     public void aggrandirHallo()
     {
         playerLight.pointLightOuterRadius += 0.09766666666f * 5;
+        if(playerLight.pointLightOuterRadius > 4)
+        {
+            playerLight.pointLightOuterRadius = 4;
+        }
     }
 }
