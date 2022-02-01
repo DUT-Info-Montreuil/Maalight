@@ -12,6 +12,19 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheckRight;
     public Animator animator;
     public SpriteRenderer spriteRenderer;
+    public static PlayerMovement instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Il y a plus d'une instance de PlayerMovement dans la scène");
+            return;
+        }
+
+        instance = this;
+    }
+    
     void Update ()
     {
         if (Input.GetButtonDown("Jump") && isGrounded)
