@@ -17,7 +17,11 @@ public class LightRadius : MonoBehaviour
     {
         if (playerLight.pointLightOuterRadius > 1)
         {
-           playerLight.pointLightOuterRadius -= 0.09766666666f/60; 
+           playerLight.pointLightOuterRadius -= 0.09766666666f/60;
+           if (playerLight.pointLightOuterRadius < 2f)
+           {
+               playerLight.color = Color.red;
+           }
         } else
         {
             Die();
