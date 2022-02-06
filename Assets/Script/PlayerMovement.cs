@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public static PlayerMovement instance;
     private float horizontalMovement;
+    public int nbPiles = 0;
 
     private void Awake()
     {
@@ -25,8 +26,8 @@ public class PlayerMovement : MonoBehaviour
         }
         instance = this;
     }
-    
-    void Update ()
+
+    void Update()
     {
         horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.fixedDeltaTime;
         if (Input.GetButtonDown("Jump") && isGrounded == true)
@@ -35,29 +36,33 @@ public class PlayerMovement : MonoBehaviour
         }
         Flip(rb.velocity.x);
         float characterVelocity = Mathf.Abs(rb.velocity.x);
-        animator.SetFloat("Speed",characterVelocity);
+        animator.SetFloat("Speed", characterVelocity);
     }
 
     void FixedUpdate()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collisionLayers);
         MovePlayer(horizontalMovement);
-        
+
     }
 
-    void MovePlayer(float _horizontalMovement){
-        Vector3 targetVelocity = new Vector2(_horizontalMovement,rb.velocity.y);
+    void MovePlayer(float _horizontalMovement)
+    {
+        Vector3 targetVelocity = new Vector2(_horizontalMovement, rb.velocity.y);
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, .05f);
-        if(isJumping == true){
-            rb.AddForce(new Vector2(0f,jumpForce));
+        if (isJumping == true)
+        {
+            rb.AddForce(new Vector2(0f, jumpForce));
             isJumping = false;
         }
     }
-    void Flip(float _velocity){
+    void Flip(float _velocity)
+    {
         if (_velocity > 0.1f)
         {
             spriteRenderer.flipX = false;
-        }else if(_velocity < -0.1f)
+        }
+        else if (_velocity < -0.1f)
         {
             spriteRenderer.flipX = true;
         }
