@@ -3,37 +3,37 @@ using UnityEngine;
 
 public class playerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
-    // UnityEngine.Experimental.Rendering.Universal.Light2D playerLight;
+
+    public float currentHealth;
+    public UnityEngine.Experimental.Rendering.Universal.Light2D playerLight;
     public HealthBar healthBar;
-
-   
-
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
-        healthBar.setMaxHealth(maxHealth);
-        // playerLight = GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>();
-        
+        currentHealth = 3.93f;
+        healthBar.setMaxHealth(currentHealth);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            takeDamage(20);
-        }
-        // print(playerLight);
+        // if(Input.GetKeyDown(KeyCode.H))
+        // {
+        //     takeDamage(20);
+        // }
+
+        healthBar.setHealth(playerLight.pointLightOuterRadius);
+        float percentage = ((playerLight.pointLightOuterRadius - 1) / 2.93f) * 100;
+        healthBar.changePercentage(percentage);
+
     }
 
 
-    public void takeDamage(int damage)
-    {
-        currentHealth -= damage;
-        healthBar.setHealth(currentHealth);
-    }
+    // public void takeDamage(double damage)
+    // {
+    //     currentHealth -= (float)damage;
+    //     healthBar.setHealth(currentHealth);
+    // }
 }
