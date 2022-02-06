@@ -1,25 +1,47 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.LWRP;
+using Object = System.Object;
 
 public class LightLife : MonoBehaviour
 {
     UnityEngine.Experimental.Rendering.Universal.Light2D lamp;
     // Start is called before the first frame update
+    public static LightLife instance;
+    public GameObject lampElement;
+    public bool lampCheck;
+    float minIntensity = 0.8f;
+    float maxIntensity = 0.3f;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogWarning("Il y a plus d'une instance de PlayerMovement dans la scène");
+            return;
+        }
+
+        instance = this;
+    }
     void Start()
     {
         lamp = GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void FixedUpdate() {
+        lamp.intensity = Random.Range(minIntensity, maxIntensity);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-         
-        LightRadius.instance.aggrandirHallo();
+        lampCheck = true;
+        StartCoroutine(RemoveAfterSeconds(10f));
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        lampCheck = false;
+    }
+    IEnumerator RemoveAfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        lampElement.SetActive(false);
     }
 }

@@ -32,12 +32,11 @@ public class LightRadius : MonoBehaviour
     {
         if (playerLight.pointLightOuterRadius > 1)
         {
-           playerLight.pointLightOuterRadius -= 0.09766666666f/60;
+            perteVie();
            if (playerLight.pointLightOuterRadius < 2f)
            {
                playerLight.color = Color.red;
            }
-           playerLight.pointLightOuterRadius -= 0.09766666666f/60;
            double damage = ((0.09766666666) * 100)/60; 
            healthBar.decreaseHealth(damage);
         } else
@@ -54,5 +53,18 @@ public class LightRadius : MonoBehaviour
     public void aggrandirHallo()
     {
         playerLight.pointLightOuterRadius += 0.09766666666f * 5;
+    }
+
+    public void perteVie()
+    {
+        if (LightLife.instance.lampCheck == true)
+        {
+            playerLight.pointLightOuterRadius -= 0f;
+        }
+        else
+        {
+            playerLight.pointLightOuterRadius -= 0.09766666666f/60;    
+        }
+        
     }
 }
