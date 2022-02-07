@@ -48,7 +48,7 @@ public class LightRadius : MonoBehaviour
         PlayerMovement.instance.animator.SetTrigger("Die");
         PlayerMovement.instance.enabled = false;
         PlayerMovement.instance.rb.velocity = Vector3.zero;
-        // GameOverManager.instance.OnPlayerDeath();
+        GameOverManager.instance.OnPlayerDeath();
     }
 
     public void aggrandirHallo()
@@ -68,7 +68,7 @@ public class LightRadius : MonoBehaviour
         }
         else
         {
-            playerLight.pointLightOuterRadius -= 0.09766666666f / 60;
+            playerLight.pointLightOuterRadius -= 0.09766666666f;
         }
 
     }
