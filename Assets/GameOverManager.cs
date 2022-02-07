@@ -28,7 +28,7 @@ public class GameOverManager : MonoBehaviour
     public void OnPlayerDeath()
     {
         gameOverUI.SetActive(true);
-        
+        turnOffLight.SetActive(false);
         
     }
 

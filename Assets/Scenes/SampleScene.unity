@@ -4526,7 +4526,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1552483300
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5377,6 +5377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 1552483299}
+  turnOffLight: {fileID: 1637209388}
 --- !u!1 &2000966114
 GameObject:
   m_ObjectHideFlags: 0
