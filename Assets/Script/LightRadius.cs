@@ -68,7 +68,7 @@ public class LightRadius : MonoBehaviour
         }
         else
         {
-            playerLight.pointLightOuterRadius -= 0.09766666666f;
+            playerLight.pointLightOuterRadius -= 0.09766666666f / 200;
         }
 
     }
