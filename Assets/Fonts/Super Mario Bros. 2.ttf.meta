@@ -1,6 +1,5 @@
 fileFormatVersion: 2
-guid: 55c830bb552e242678a285d62c3d1e07
-guid: 58521140760ad074db7035de553636a9
+guid: f70f886f4262a0a439854013f76bf70f
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -10,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Pixelated
+  - Super Mario Bros. 2
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
