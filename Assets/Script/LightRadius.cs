@@ -45,6 +45,7 @@ public class LightRadius : MonoBehaviour
     void Die(){
          PlayerMovement.instance.animator.SetTrigger("Die");
          PlayerMovement.instance.enabled = false;
+         PlayerMovement.instance.rb.velocity = Vector3.zero;
     }
 
     public void aggrandirHallo()
