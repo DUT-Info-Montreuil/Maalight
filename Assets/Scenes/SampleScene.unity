@@ -3184,7 +3184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isJumping: 0
-  DoubleJump: 0
+  doubleJump: 0
   isGrounded: 1
   moveSpeed: 250
   jumpForce: 350
