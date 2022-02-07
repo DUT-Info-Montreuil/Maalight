@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public bool isJumping;
+    public bool DoubleJump;
     public bool isGrounded;
     public float moveSpeed;
     public float jumpForce;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement instance;
     private float horizontalMovement;
     public int nbPiles = 0;
+
 
     private void Awake()
     {

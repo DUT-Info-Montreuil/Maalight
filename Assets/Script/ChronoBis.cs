@@ -38,13 +38,8 @@ public class ChronoBis : MonoBehaviour
             {
                 GetComponent<Text>().text = "GAME OVER";
                 print("chrono écroulé");
-                Die();
+                LightRadius.instance.Die();
             }
         }
-    }
-    void Die()
-    {
-        PlayerMovement.instance.animator.SetTrigger("Die");
-        PlayerMovement.instance.enabled = false;
     }
 }

@@ -8,7 +8,7 @@ public class LightRadius : MonoBehaviour
 {
     public float timeStart = 60;
     UnityEngine.Experimental.Rendering.Universal.Light2D playerLight;
-    
+
     public static LightRadius instance;
 
     private void Awake()
@@ -32,27 +32,29 @@ public class LightRadius : MonoBehaviour
         if (playerLight.pointLightOuterRadius > 1)
         {
             perteVie();
-           if (playerLight.pointLightOuterRadius < 2f)
-           {
-               playerLight.color = Color.red;
-           }
-        } else
+            if (playerLight.pointLightOuterRadius < 2f)
+            {
+                playerLight.color = Color.red;
+            }
+        }
+        else
         {
             Die();
             return;
         }
     }
-    void Die(){
-         PlayerMovement.instance.animator.SetTrigger("Die");
-         PlayerMovement.instance.enabled = false;
-         PlayerMovement.instance.rb.velocity = Vector3.zero;
+    public void Die()
+    {
+        PlayerMovement.instance.animator.SetTrigger("Die");
+        PlayerMovement.instance.enabled = false;
+        PlayerMovement.instance.rb.velocity = Vector3.zero;
     }
 
     public void aggrandirHallo()
     {
         playerLight.pointLightOuterRadius += 0.09766666666f * 5;
-        if(playerLight.pointLightOuterRadius > 4)
-        { 
+        if (playerLight.pointLightOuterRadius > 4)
+        {
             playerLight.pointLightOuterRadius = 4;
         }
     }
@@ -65,8 +67,8 @@ public class LightRadius : MonoBehaviour
         }
         else
         {
-            playerLight.pointLightOuterRadius -= 0.09766666666f/60;    
+            playerLight.pointLightOuterRadius -= 0.09766666666f / 60;
         }
-        
+
     }
 }
