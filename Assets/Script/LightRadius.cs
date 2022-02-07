@@ -10,7 +10,6 @@ public class LightRadius : MonoBehaviour
     UnityEngine.Experimental.Rendering.Universal.Light2D playerLight;
     
     public static LightRadius instance;
-    public HealthBar healthBar;
 
     private void Awake()
     {
@@ -37,8 +36,6 @@ public class LightRadius : MonoBehaviour
            {
                playerLight.color = Color.red;
            }
-           double damage = ((0.09766666666) * 100)/60; 
-           healthBar.decreaseHealth(damage);
         } else
         {
             Die();
