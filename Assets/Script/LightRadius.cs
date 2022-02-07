@@ -43,11 +43,12 @@ public class LightRadius : MonoBehaviour
             return;
         }
     }
-    public void Die(){
-         PlayerMovement.instance.animator.SetTrigger("Die");
-         PlayerMovement.instance.enabled = false;
-         PlayerMovement.instance.rb.velocity = Vector3.zero;
-         GameOverManager.instance.OnPlayerDeath();
+    public void Die()
+    {
+        PlayerMovement.instance.animator.SetTrigger("Die");
+        PlayerMovement.instance.enabled = false;
+        PlayerMovement.instance.rb.velocity = Vector3.zero;
+        // GameOverManager.instance.OnPlayerDeath();
     }
 
     public void aggrandirHallo()
@@ -69,6 +70,6 @@ public class LightRadius : MonoBehaviour
         {
             playerLight.pointLightOuterRadius -= 0.09766666666f / 60;
         }
-        
+
     }
 }

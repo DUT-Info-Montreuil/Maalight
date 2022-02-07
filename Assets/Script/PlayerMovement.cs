@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public bool isJumping;
-    public bool DoubleJump;
+    public bool doubleJump;
     public bool isGrounded;
     public float moveSpeed;
     public float jumpForce;
@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalMovement;
     public int nbPiles = 0;
 
-
     private void Awake()
     {
         if (instance != null)
@@ -32,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.fixedDeltaTime;
-        if (Input.GetButtonDown("Jump") && isGrounded == true)
+        if (Input.GetButtonDown("Jump"))
         {
             isJumping = true;
         }
@@ -52,10 +51,20 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 targetVelocity = new Vector2(_horizontalMovement, rb.velocity.y);
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, .05f);
-        if (isJumping == true)
+        if (isJumping == true && isGrounded == true)
         {
+            print(rb);
             rb.AddForce(new Vector2(0f, jumpForce));
             isJumping = false;
+            doubleJump = true;
+        }
+        else
+        {
+            if (doubleJump == true && isJumping == true)
+            {
+                rb.AddForce(new Vector2(0f, jumpForce / 2));
+                doubleJump = false;
+            }
         }
     }
     void Flip(float _velocity)
@@ -74,4 +83,6 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
+
 }
+
