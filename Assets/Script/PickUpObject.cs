@@ -13,6 +13,7 @@ public class PickUpObject : MonoBehaviour
         }
         else
         {
+            Inventory.instance.AddCoins(1);
             PlayerMovement.instance.nbPiles++;
             // print(PlayerMovement.instance.nbPiles);
             if (PlayerMovement.instance.nbPiles == 4)
