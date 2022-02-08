@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PickUpObject : MonoBehaviour
@@ -29,8 +30,9 @@ public class PickUpObject : MonoBehaviour
 
     private void coffreOuvert()
     {
-
+        
     }
+
     private void ilFautSortir()
     {
         ChronoBis.instance.lanceChrono();
