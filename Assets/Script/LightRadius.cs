@@ -26,15 +26,15 @@ public class LightRadius : MonoBehaviour
     void Start()
     {
         playerLight = GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>();
-       setDecrease(0.09766666666f);
-       
+        setDecrease(0.09766666666f);
+
     }
 
     void FixedUpdate()
     {
         if (playerLight.pointLightOuterRadius > 1)
         {
-            perteVie();
+            // perteVie();
             if (playerLight.pointLightOuterRadius < 2f)
             {
                 playerLight.color = Color.red;
@@ -65,10 +65,7 @@ public class LightRadius : MonoBehaviour
 
     public void perteVie()
     {
-       
-            playerLight.pointLightOuterRadius -= decrease / 60;
-        
-
+        playerLight.pointLightOuterRadius -= decrease / 60;
     }
 
     public void setDecrease(float f)
