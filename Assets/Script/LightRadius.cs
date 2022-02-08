@@ -34,7 +34,7 @@ public class LightRadius : MonoBehaviour
     {
         if (playerLight.pointLightOuterRadius > 1)
         {
-            // perteVie();
+            perteVie();
             if (playerLight.pointLightOuterRadius < 2f)
             {
                 playerLight.color = Color.red;
