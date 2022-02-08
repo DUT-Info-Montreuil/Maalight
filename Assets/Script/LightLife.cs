@@ -8,7 +8,7 @@ public class LightLife : MonoBehaviour
     // Start is called before the first frame update
     public static LightLife instance;
     public GameObject lampElement;
-    public bool lampCheck;
+    public bool lampCheck=false;
     float minIntensity = 0.8f;
     float maxIntensity = 0.3f;
     private void Awake()
@@ -32,12 +32,12 @@ public class LightLife : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        lampCheck = true;
+        LightRadius.instance.setDecrease(0f);
         StartCoroutine(RemoveAfterSeconds(10f));
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        lampCheck = false;
+        LightRadius.instance.setDecrease(0.09766666666f);
     }
     IEnumerator RemoveAfterSeconds(float seconds)
     {

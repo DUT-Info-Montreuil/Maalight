@@ -8,6 +8,7 @@ public class LightRadius : MonoBehaviour
 {
     public float timeStart = 60;
     UnityEngine.Experimental.Rendering.Universal.Light2D playerLight;
+    public float decrease;
 
     public static LightRadius instance;
 
@@ -25,6 +26,8 @@ public class LightRadius : MonoBehaviour
     void Start()
     {
         playerLight = GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>();
+       setDecrease(0.09766666666f);
+       
     }
 
     void FixedUpdate()
@@ -62,14 +65,14 @@ public class LightRadius : MonoBehaviour
 
     public void perteVie()
     {
-        if (LightLife.instance.lampCheck == true)
-        {
-            playerLight.pointLightOuterRadius -= 0f;
-        }
-        else
-        {
-            playerLight.pointLightOuterRadius -= 0.09766666666f / 200;
-        }
+       
+            playerLight.pointLightOuterRadius -= decrease / 60;
+        
 
+    }
+
+    public void setDecrease(float f)
+    {
+        decrease = f;
     }
 }
