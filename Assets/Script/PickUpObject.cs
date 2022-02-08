@@ -11,7 +11,7 @@ public class PickUpObject : MonoBehaviour
         {
             LightRadius.instance.aggrandirHallo();
         }
-        else
+        else if (nom.Substring(0, 3).ToString() == "pil")
         {
             Inventory.instance.AddCoins(1);
             PlayerMovement.instance.nbPiles++;
@@ -21,10 +21,19 @@ public class PickUpObject : MonoBehaviour
                 ilFautSortir();
             }
         }
+        else
+        {
+
+        }
     }
 
+    private void coffreOuvert()
+    {
+
+    }
     private void ilFautSortir()
     {
         ChronoBis.instance.lanceChrono();
+
     }
 }

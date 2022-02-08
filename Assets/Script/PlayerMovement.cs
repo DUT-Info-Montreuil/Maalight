@@ -44,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collisionLayers);
         MovePlayer(horizontalMovement);
-
     }
 
     void MovePlayer(float _horizontalMovement)
