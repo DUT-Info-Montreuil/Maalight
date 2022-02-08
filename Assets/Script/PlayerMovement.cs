@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, .05f);
         if (isJumping == true && isGrounded == true)
         {
-            print(rb);
             rb.AddForce(new Vector2(0f, jumpForce));
             isJumping = false;
             doubleJump = true;
@@ -64,7 +63,17 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.AddForce(new Vector2(0f, jumpForce / 2));
                 doubleJump = false;
+                
             }
+        }
+
+        if (isGrounded==false)
+        {
+            animator.SetBool("isJump",true);
+        }
+        if(isGrounded==true)
+        {
+            animator.SetBool("isJump",false);
         }
     }
     void Flip(float _velocity)
