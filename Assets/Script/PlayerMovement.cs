@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         Flip(rb.velocity.x);
         float characterVelocity = Mathf.Abs(rb.velocity.x);
         animator.SetFloat("Speed", characterVelocity);
+
     }
 
     void FixedUpdate()
