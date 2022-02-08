@@ -42,7 +42,7 @@ public class PickUpObject : MonoBehaviour
 
     private void coffreOuvert()
     {
-        
+        GameOverManager.instance.OnPlayerVictory();
     }
 
     private void ilFautSortir()

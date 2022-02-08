@@ -34,6 +34,10 @@ public class HealthBar : MonoBehaviour
         {
             fill.color = Color.red;
         }
+        else
+        {
+            fill.color = Color.green;
+        }
     }
 
     private int getPercentage()

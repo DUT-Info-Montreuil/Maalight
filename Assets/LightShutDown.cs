@@ -6,21 +6,12 @@ using UnityEngine.Experimental.Rendering.LWRP;
 
 public class LightShutDown : MonoBehaviour
 {
-    public UnityEngine.Experimental.Rendering.Universal.Light2D LightScene;
+    public GameObject LightScene;
     // Start is called before the first frame update
-    void Start()
-    {
-        LightScene = GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>();
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        LightScene.intensity = 0;
+        Debug.Log("COLLISION");
+       LightScene.SetActive(false);
     }
 }

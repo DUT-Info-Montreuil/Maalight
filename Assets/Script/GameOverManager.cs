@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour
 {
     public GameObject gameOverUI;
+    public GameObject winUI;
     public static GameOverManager instance;
 
     public GameObject turnOffLight;
@@ -28,6 +29,13 @@ public class GameOverManager : MonoBehaviour
     public void OnPlayerDeath()
     {
         gameOverUI.SetActive(true);
+        turnOffLight.SetActive(false);
+        
+    }
+    
+    public void OnPlayerVictory()
+    {
+        winUI.SetActive(true);
         turnOffLight.SetActive(false);
         
     }
