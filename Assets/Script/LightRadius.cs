@@ -9,6 +9,7 @@ public class LightRadius : MonoBehaviour
     public float timeStart = 60;
     UnityEngine.Experimental.Rendering.Universal.Light2D playerLight;
     public float decrease;
+    public HealthBar healthBar;
 
     public static LightRadius instance;
 
@@ -39,6 +40,10 @@ public class LightRadius : MonoBehaviour
             {
                 playerLight.color = Color.red;
             }
+            else
+            {
+                playerLight.color = Color.white;
+            }
         }
         else
         {
@@ -48,6 +53,7 @@ public class LightRadius : MonoBehaviour
     }
     public void Die()
     {
+        healthBar.setHealth(0f);
         PlayerMovement.instance.animator.SetTrigger("Die");
         PlayerMovement.instance.enabled = false;
         PlayerMovement.instance.rb.velocity = Vector3.zero;

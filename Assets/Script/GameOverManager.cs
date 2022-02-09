@@ -35,8 +35,10 @@ public class GameOverManager : MonoBehaviour
     
     public void OnPlayerVictory()
     {
+        
         winUI.SetActive(true);
         turnOffLight.SetActive(false);
+        Time.timeScale = 0;
         
     }
 

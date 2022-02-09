@@ -11,16 +11,7 @@ public class LightLife : MonoBehaviour
     public bool lampCheck=false;
     float minIntensity = 0.8f;
     float maxIntensity = 0.3f;
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Debug.LogWarning("Il y a plus d'une instance de PlayerMovement dans la scène");
-            return;
-        }
-
-        instance = this;
-    }
+    
     void Start()
     {
         lamp = GetComponent<UnityEngine.Experimental.Rendering.Universal.Light2D>();
